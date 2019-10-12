@@ -6,29 +6,172 @@ output: html_notebook
 
 For the regular expression exercises, try writing first using regular expressions directly, then try using rverbalexpressions. Provide the code for both. 
 
+
 # Part 1
+
+```{r load library}
+library(tidyverse)
+library(lubridate)
+```
+
 
 ## R4DS 16.4.5
 
 Create a vector of dates giving the first day of every month in the current year. 
 
+```{r first day very month}
+firstday_every_month <- floor_date(today(), unit = "year") + months(0 : 11)
+firstday_every_month
+```
+
+
 Write a function that given your birthday (as a date), returns how old you are in years.
 
+```{r age}
+age <- function(birthday) {
+  (birthday %--% today()) %/% years()
+}
+
+age(ymd(19950225))
+
+```
+
 Write a function that given your birthday, returns the day of the week you were born on. 
+
+```{r born day of the week}
+born_week <- function(birthday) {
+  (wday(birthday, label=TRUE, abbr = FALSE))
+}
+
+born_week(ymd(19950225))
+
+```
+
 
 ## R4DS 14.3.2.1
 
 Given the corpus of common words in stringr::words, create regular expressions that find all words that have seven letters or more. (Since this list is long, you might want to use the match argument to str_view() to show only the matching or non-matching words.)
+```{r load library}
+library(RVerbalExpressions)
+library(stringr)
+```
+
+
+```{r At least seven letters}
+words <- stringr::words
+
+# Regular expression
+str_view(words, "^\\w{7}(.*)$", match = TRUE) # matching words
+str_view(words, "^\\w{7}(.*)$", match = FALSE) # non-matching words
+
+
+# RVerbalExpression
+wordrx_matched <- rx() %>%
+  rx_start_of_line() %>% 
+  rx_word_char() %>% 
+  rx_repeat_previous(7) %>% 
+  rx_anything() %>%
+  rx_end_of_line() %>% 
+  print()
+
+str_view(words, wordrx_matched, match = TRUE) # matching words
+str_view(words, wordrx_matched, match = FALSE) # non-matching words
+
+```
 
 ## R4DS 14.3.3.1
 
 Use str_detect to find all words that:
 
-That only contain consonants. (Hint: thinking about matching “not”-vowels.)
+(1) That only contain consonants. (Hint: thinking about matching "not"-vowels.)
 
-Empirically verify the rule “i before e except after c”.
+```{r (1) Consonants}
+# Regular expression
+words[str_detect(words, "^[^aeiou]+$")]
 
-Create a regular expression that will match telephone numbers as commonly written in the US. Split this up into multiple expressions as needed.
+# RVerbalExpression
+in_consonants <- rx() %>% 
+  rx_start_of_line() %>% 
+  rx_anything_but(c("aeiou")) %>% 
+  rx_end_of_line() %>% 
+  print()
+
+words[str_detect(words, in_consonants)]
+
+```
+
+
+(2) Empirically verify the rule "i before e except after c".
+
+```{r (2) i before e except after c}
+
+# Regular expression
+words[str_detect(words, "[^c]ie")]
+
+# RVerbalExpression
+spell_rule <- rx() %>% 
+  rx_something_but("c") %>% 
+  rx_find("ie") %>% 
+  print()
+
+
+words[str_detect(words, spell_rule)]
+
+```
+
+
+(3) Create a regular expression that will match telephone numbers as commonly written in the US. Split this up into multiple expressions as needed.
+
+```{r (3) match tel numbers}
+
+# Common format (xxx-xxx-xxxx or xxx.xxx.xxxx): Regular Expression
+grepl("^\\d{3}[-\\.]\\d{3}[-\\.]\\d{4}$", "615-319-5166")
+
+
+# Common format (xxx-xxx-xxxx or xxx.xxx.xxxx): RVerbalExpression
+
+telrx <- rx() %>%
+  rx_start_of_line() %>% 
+  rx_digit() %>% 
+  rx_repeat_previous(3) %>% 
+  rx_any_of("-.") %>%
+  rx_digit() %>%
+  rx_repeat_previous(3) %>% 
+  rx_any_of("-.") %>%
+  rx_digit() %>%
+  rx_repeat_previous(4) %>% 
+  rx_end_of_line() %>% 
+  print() %>% 
+  grepl(c("615-319-5166", "615.319.5166", "EM5.319.5166","(615)319-5166")) %>% 
+  print()
+
+```
+
+```{r (3) Special case}
+# Special case ((xxx) xxx-xxxx): Regular Expression
+grepl("^(\\()?\\d{3}(\\))?[-\\. ]\\d{3}[-\\.]\\d{4}$", "(615) 319-5166")
+
+# Special case ((xxx) xxx-xxxx): RVerbalExpression
+telrx_special <- rx() %>%
+  rx_start_of_line() %>% 
+  rx_maybe("(") %>%
+  rx_digit() %>% 
+  rx_repeat_previous(3) %>% 
+  rx_maybe(")") %>%
+  rx_any_of("-. ") %>%
+  rx_digit() %>%
+  rx_repeat_previous(3) %>% 
+  rx_any_of("-.") %>%
+  rx_digit() %>%
+  rx_repeat_previous(4) %>% 
+  rx_end_of_line() %>% 
+  print() %>% 
+  grepl(c("615-319-5166", "615.319.5166", "(615) 319-5166")) %>% 
+  print()
+
+
+```
+
 
 # Part 2
 

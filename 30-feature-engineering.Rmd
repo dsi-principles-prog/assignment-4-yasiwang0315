@@ -1,0 +1,118 @@
+---
+title: "30-feature-engineering"
+output: html_notebook
+---
+ 
+# Goal
+
+Our goal is to predict the quantity of the items sold per branch in each day. In order to better predict the order quantity, we need to do some feature engineering.
+
+# Feature engineering
+
+a. month, day, hour
+
+In order to get month's and day's information, I use `month()`, `day()`, and `hour()` functions to extract the sale's month, day, and hour.
+```{r month, day, hour}
+month_detail <- function(df, date, time) {
+  df <- df %>% 
+    mutate(month = factor(month({{date}}),labels = c("1","2","3"))
+           , day = day({{date}})
+           , hour = hour({{time}}))
+}
+
+supermarket %>% 
+  month_detail(date, time) %>% 
+  select(month, day, hour, time, date, everything()) %>% 
+  assert(in_set(1, 2, 3), month) %>% 
+  assert(in_set(seq(1, 31, 1)), day) %>% 
+  assert(in_set(seq(0, 24, 1), hour))
+
+```
+
+There is no abnormal value. The **month** variable only contains 1, 2, 3 which represents January, Febrary, March. **day** variables belongs to 1 to 31, and **hour** variable ranges from 0 to 24.
+
+
+b. gross margins per item
+
+I think that gross income per item is a good index to predict the item quantities. Thus, I create a new variable called gross_income_per_item to reflect this information.
+
+```{r gross_income_per_item}
+gross_item <- function(df) {
+  if (!all(c("quantity", "gross_income") %in% names(df))) {
+    stop("data must contain 'quantity' and 'gross_income'")
+  }
+  df <- df %>% 
+    mutate(gross_income_per_item = gross_income/quantity)
+}
+
+supermarket %>% 
+  gross_item() %>% 
+  select(gross_income_per_item, everything()) %>% 
+  assert(within_bounds(0, 100), gross_income_per_item)
+```
+
+
+The new variable has no abnormal value.
+
+
+c. total items' quantity per day
+
+In this step, I created the total quantities of the items per day in different branches. This is what I want to predict.
+
+```{r total_quantity_per_day}
+total_quant_day <- function(df) {
+  if (!all(c("quantity", "date", "branch") %in% names(df))) {
+    stop("data must contain 'quantity', 'date' and 'branch")
+  }
+  df <- df %>% 
+    group_by(date, branch) %>% 
+    mutate(total_quantity_per_day = sum(quantity)) %>%
+    arrange(date, branch) %>% 
+    ungroup()
+}
+
+supermarket %>% 
+  total_quant_day() %>% 
+  select(total_quantity_per_day,date, branch, everything()) %>% 
+  assert(within_bounds(1, 200), total_quantity_per_day)
+
+```
+
+The total quantities of each branches' items are within 200.
+
+
+d. unit price level
+
+I divided the unit price into three levels and created the new variable called unit_price_level. If the unit price is smaller than 35 dollars, the level is low, and if the unit price is between 35 dollars and 70 dollars, it belongs to middle level, and hiher than 70 belongs to high level. I want to see the effect of this new variable on the quantities.
+
+```{r unit_price_level}
+price_level <- function(df) {
+    if (!"unit_price" %in% names(df)) {
+    stop("data must contain 'unit_price'")
+  }
+  df <- df %>% 
+    mutate(unit_price_level = case_when(unit_price <= 35 ~ "low",
+                     unit_price <= 70 ~ "mid",
+                     TRUE ~ "high"))
+}
+
+supermarket %>% 
+  price_level() %>% 
+  select(unit_price_level, unit_price, branch, everything())
+```
+
+
+# All together
+
+Now we add all the features together to the dataset. The new dataset which contains all the new attributes `sup_new_feature` is created.
+
+```{r add features to the dataset}
+sup_new_feature <- supermarket %>% 
+  month_detail(date, time) %>% 
+  gross_item() %>%
+  total_quant_day() %>% 
+  price_level()
+  
+
+head(sup_new_feature)
+```
