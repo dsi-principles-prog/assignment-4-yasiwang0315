@@ -232,30 +232,12 @@ summary {
 <h1>Part 1</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGx1YnJpZGF0ZSlcbmxpYnJhcnkoUlZlcmJhbEV4cHJlc3Npb25zKVxubGlicmFyeShzdHJpbmdyKVxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+library(RVerbalExpressions)
+library(stringr)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzM3bS0tIFx1MDAxYlsxbUF0dGFjaGluZyBwYWNrYWdlc1x1MDAxYlsyMm0gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZSAxLjIuMSAtLVx1MDAxYlszOW1cblx1MDAxYlszN21cdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bWdncGxvdDJcdTAwMWJbMzdtIDMuMi4xICAgICBcdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bXB1cnJyICBcdTAwMWJbMzdtIDAuMy4yXG5cdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bXRpYmJsZSBcdTAwMWJbMzdtIDIuMS4zICAgICBcdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bWRwbHlyICBcdTAwMWJbMzdtIDAuOC4zXG5cdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzdtIDEuMC4wICAgICBcdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bXN0cmluZ3JcdTAwMWJbMzdtIDEuNC4wXG5cdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bXJlYWRyICBcdTAwMWJbMzdtIDEuMy4xICAgICBcdTAwMWJbMzJtdlx1MDAxYlszN20gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzdtIDAuNC4wXHUwMDFiWzM5bVxuXHUwMDFiWzM3bS0tIFx1MDAxYlsxbUNvbmZsaWN0c1x1MDAxYlsyMm0gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxuXHUwMDFiWzMxbXhcdTAwMWJbMzdtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszN206Olx1MDAxYlszMm1maWx0ZXIoKVx1MDAxYlszN20gbWFza3MgXHUwMDFiWzM0bXN0YXRzXHUwMDFiWzM3bTo6ZmlsdGVyKClcblx1MDAxYlszMW14XHUwMDFiWzM3bSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzdtOjpcdTAwMWJbMzJtbGFnKClcdTAwMWJbMzdtICAgIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszN206OmxhZygpXHUwMDFiWzM5bVxuIn0= -->
-<pre><code>[37m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.2.1 --[39m
-[37m[32mv[37m [34mggplot2[37m 3.2.1     [32mv[37m [34mpurrr  [37m 0.3.2
-[32mv[37m [34mtibble [37m 2.1.3     [32mv[37m [34mdplyr  [37m 0.8.3
-[32mv[37m [34mtidyr  [37m 1.0.0     [32mv[37m [34mstringr[37m 1.4.0
-[32mv[37m [34mreadr  [37m 1.3.1     [32mv[37m [34mforcats[37m 0.4.0[39m
-[37m-- [1mConflicts[22m ------------------------------------------ tidyverse_conflicts() --
-[31mx[37m [34mdplyr[37m::[32mfilter()[37m masks [34mstats[37m::filter()
-[31mx[37m [34mdplyr[37m::[32mlag()[37m    masks [34mstats[37m::lag()[39m</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5gYGAifQ== -->
-<pre class="r"><code>library(lubridate)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog46S847ixbHVicmlkYXRl46S847iyXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOOkvOO4sXBhY2thZ2U6YmFzZeOkvOO4sjpcblxuICAgIGRhdGVcbiJ9 -->
-<pre><code>
-Attaching package: ã¤¼ã¸±lubridateã¤¼ã¸²
-
-The following object is masked from ã¤¼ã¸±package:baseã¤¼ã¸²:
-
-    date</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="r4ds-16.4.5" class="section level2">
@@ -263,8 +245,8 @@ The following object is masked from ã¤¼ã¸±package:baseã¤¼ã¸²:
 <p>Create a vector of dates giving the first day of every month in the current year.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxvb3JfZGF0ZSh0b2RheSgpLCB1bml0ID0gXCJ5ZWFyXCIpICsgbW9udGhzKDAgOiAxMSlcblxuYGBgIn0= -->
-<pre class="r"><code>floor_date(today(), unit = &quot;year&quot;) + months(0 : 11)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlyc3RkYXlfZXZlcnlfbW9udGhcblxuYGBgIn0= -->
+<pre class="r"><code>firstday_every_month
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIjIwMTktMDEtMDFcIiBcIjIwMTktMDItMDFcIiBcIjIwMTktMDMtMDFcIiBcIjIwMTktMDQtMDFcIiBcIjIwMTktMDUtMDFcIiBcIjIwMTktMDYtMDFcIiBcIjIwMTktMDctMDFcIlxuIFs4XSBcIjIwMTktMDgtMDFcIiBcIjIwMTktMDktMDFcIiBcIjIwMTktMTAtMDFcIiBcIjIwMTktMTEtMDFcIiBcIjIwMTktMTItMDFcIlxuIn0= -->
@@ -276,12 +258,11 @@ The following object is masked from ã¤¼ã¸±package:baseã¤¼ã¸²:
 <p>Write a function that given your birthday (as a date), returns how old you are in years.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWdlIDwtIGZ1bmN0aW9uKGJkYXkpIHtcbiAgKHltZChiZGF5KSAlLS0lIHRvZGF5KCkpICUvJSB5ZWFycygxKVxufVxuYWdlKDE5OTUwMjI1KVxuXG5gYGAifQ== -->
-<pre class="r"><code>age &lt;- function(bday) {
-  (ymd(bday) %--% today()) %/% years(1)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWdlIDwtIGZ1bmN0aW9uKGJpcnRoZGF5KSB7XG4gIChiaXJ0aGRheSAlLS0lIHRvZGF5KCkpICUvJSB5ZWFycygpXG59XG5hZ2UoeW1kKDE5OTUwMjI1KSlcbmBgYCJ9 -->
+<pre class="r"><code>age &lt;- function(birthday) {
+  (birthday %--% today()) %/% years()
 }
-age(19950225)
-</code></pre>
+age(ymd(19950225))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI0XG4ifQ== -->
 <pre><code>[1] 24</code></pre>
@@ -291,6 +272,16 @@ age(19950225)
 <p>Write a function that given your birthday, returns the day of the week you were born on.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm9ybl93ZWVrIDwtIGZ1bmN0aW9uKGJpcnRoZGF5KSB7XG4gICh3ZGF5KGJpcnRoZGF5LCBsYWJlbD1UUlVFLCBhYmJyID0gRkFMU0UpKVxufVxuYm9ybl93ZWVrKHltZCgxOTk1MDIyNSkpXG5gYGAifQ== -->
+<pre class="r"><code>born_week &lt;- function(birthday) {
+  (wday(birthday, label=TRUE, abbr = FALSE))
+}
+born_week(ymd(19950225))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFNhdHVyZGF5XG5MZXZlbHM6IFN1bmRheSA8IE1vbmRheSA8IFR1ZXNkYXkgPCBXZWRuZXNkYXkgPCBUaHVyc2RheSA8IEZyaWRheSA8IFNhdHVyZGF5XG4ifQ== -->
+<pre><code>[1] Saturday
+Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; Friday &lt; Saturday</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -299,37 +290,157 @@ age(19950225)
 <p>Given the corpus of common words in stringr::words, create regular expressions that find all words that have seven letters or more. (Since this list is long, you might want to use the match argument to str_view() to show only the matching or non-matching words.)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVscnhfbWF0Y2hlZCA8LSByeCgpICU+JVxuICByeF9zdGFydF9vZl9saW5lKCkgJT4lIFxuICByeF93b3JkX2NoYXIoKSAlPiUgXG4gIHJ4X3JlcGVhdF9wcmV2aW91cyg3KSAlPiUgXG4gIHJ4X2FueXRoaW5nKCkgJT4lXG4gIHJ4X2VuZF9vZl9saW5lKCkgJT4lIFxuICBwcmludCgpXG5cbmBgYCJ9 -->
-<pre class="r"><code>telrx_matched &lt;- rx() %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29yZHMgPC0gc3RyaW5ncjo6d29yZHNcbiMgUmVndWxhciBleHByZXNzaW9uXG5zdHJfdmlldyh3b3JkcywgXCJeXFxcXHd7N30oLiopJFwiLCBtYXRjaCA9IFRSVUUpICMgbWF0Y2hpbmcgd29yZHNcbnN0cl92aWV3KHdvcmRzLCBcIl5cXFxcd3s3fSguKikkXCIsIG1hdGNoID0gRkFMU0UpICMgbm9uLW1hdGNoaW5nIHdvcmRzXG4jIFJWZXJiYWxFeHByZXNzaW9uXG53b3JkcnhfbWF0Y2hlZCA8LSByeCgpICU+JVxuICByeF9zdGFydF9vZl9saW5lKCkgJT4lIFxuICByeF93b3JkX2NoYXIoKSAlPiUgXG4gIHJ4X3JlcGVhdF9wcmV2aW91cyg3KSAlPiUgXG4gIHJ4X2FueXRoaW5nKCkgJT4lXG4gIHJ4X2VuZF9vZl9saW5lKCkgJT4lIFxuICBwcmludCgpXG5gYGAifQ== -->
+<pre class="r"><code>words &lt;- stringr::words
+# Regular expression
+str_view(words, &quot;^\\w{7}(.*)$&quot;, match = TRUE) # matching words
+str_view(words, &quot;^\\w{7}(.*)$&quot;, match = FALSE) # non-matching words
+# RVerbalExpression
+wordrx_matched &lt;- rx() %&gt;%
   rx_start_of_line() %&gt;% 
   rx_word_char() %&gt;% 
   rx_repeat_previous(7) %&gt;% 
   rx_anything() %&gt;%
   rx_end_of_line() %&gt;% 
-  print()
-</code></pre>
+  print()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiXlxcXFx3ezd9KC4qKSRcIlxuIn0= -->
 <pre><code>[1] &quot;^\\w{7}(.*)$&quot;</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3ZpZXcod29yZHMsIHdvcmRyeF9tYXRjaGVkLCBtYXRjaCA9IFRSVUUpICMgbWF0Y2hpbmcgd29yZHNcbnN0cl92aWV3KHdvcmRzLCB3b3JkcnhfbWF0Y2hlZCwgbWF0Y2ggPSBGQUxTRSkgIyBub24tbWF0Y2hpbmcgd29yZHNcbmBgYCJ9 -->
+<pre class="r"><code>str_view(words, wordrx_matched, match = TRUE) # matching words
+str_view(words, wordrx_matched, match = FALSE) # non-matching words</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 <div id="r4ds-14.3.3.1" class="section level2">
 <h2>R4DS 14.3.3.1</h2>
 <p>Use str_detect to find all words that:</p>
-<p>That only contain consonants. (Hint: thinking about matching ânotâ-vowels.)</p>
-<p>Empirically verify the rule “i before e except after c”.</p>
-<p>Create a regular expression that will match telephone numbers as commonly written in the US. Split this up into multiple expressions as needed.</p>
+<ol style="list-style-type: decimal">
+<li>That only contain consonants. (Hint: thinking about matching “not”-vowels.)</li>
+</ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2RldGVjdCgpXG5gYGAifQ== -->
-<pre class="r"><code>str_detect()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGV4cHJlc3Npb25cbndvcmRzW3N0cl9kZXRlY3Qod29yZHMsIFwiXlteYWVpb3VdKyRcIildXG5gYGAifQ== -->
+<pre class="r"><code># Regular expression
+words[str_detect(words, &quot;^[^aeiou]+$&quot;)]</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYnlcIiAgXCJkcnlcIiBcImZseVwiIFwibXJzXCIgXCJ0cnlcIiBcIndoeVwiXG4ifQ== -->
+<pre><code>[1] &quot;by&quot;  &quot;dry&quot; &quot;fly&quot; &quot;mrs&quot; &quot;try&quot; &quot;why&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSVmVyYmFsRXhwcmVzc2lvblxuaW5fY29uc29uYW50cyA8LSByeCgpICU+JSBcbiAgcnhfc3RhcnRfb2ZfbGluZSgpICU+JSBcbiAgcnhfYW55dGhpbmdfYnV0KGMoXCJhZWlvdVwiKSkgJT4lIFxuICByeF9lbmRfb2ZfbGluZSgpICU+JSBcbiAgcHJpbnQoKVxuYGBgIn0= -->
+<pre class="r"><code># RVerbalExpression
+in_consonants &lt;- rx() %&gt;% 
+  rx_start_of_line() %&gt;% 
+  rx_anything_but(c(&quot;aeiou&quot;)) %&gt;% 
+  rx_end_of_line() %&gt;% 
+  print()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiXihbXmFlaW91XSopJFwiXG4ifQ== -->
+<pre><code>[1] &quot;^([^aeiou]*)$&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29yZHNbc3RyX2RldGVjdCh3b3JkcywgaW5fY29uc29uYW50cyldXG5gYGAifQ== -->
+<pre class="r"><code>words[str_detect(words, in_consonants)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYnlcIiAgXCJkcnlcIiBcImZseVwiIFwibXJzXCIgXCJ0cnlcIiBcIndoeVwiXG4ifQ== -->
+<pre><code>[1] &quot;by&quot;  &quot;dry&quot; &quot;fly&quot; &quot;mrs&quot; &quot;try&quot; &quot;why&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: decimal">
+<li>Empirically verify the rule “i before e except after c”.</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGV4cHJlc3Npb25cbndvcmRzW3N0cl9kZXRlY3Qod29yZHMsIFwiW15jXWllXCIpXVxuYGBgIn0= -->
+<pre class="r"><code># Regular expression
+words[str_detect(words, &quot;[^c]ie&quot;)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcImFjaGlldmVcIiAgICBcImJlbGlldmVcIiAgICBcImJyaWVmXCIgICAgICBcImNsaWVudFwiICAgICBcImRpZVwiICAgICAgICBcImV4cGVyaWVuY2VcIiBcImZpZWxkXCIgICAgIFxuIFs4XSBcImZyaWVuZFwiICAgICBcImxpZVwiICAgICAgICBcInBpZWNlXCIgICAgICBcInF1aWV0XCIgICAgICBcInRpZVwiICAgICAgICBcInZpZXdcIiAgICAgIFxuIn0= -->
+<pre><code> [1] &quot;achieve&quot;    &quot;believe&quot;    &quot;brief&quot;      &quot;client&quot;     &quot;die&quot;        &quot;experience&quot; &quot;field&quot;     
+ [8] &quot;friend&quot;     &quot;lie&quot;        &quot;piece&quot;      &quot;quiet&quot;      &quot;tie&quot;        &quot;view&quot;      </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSVmVyYmFsRXhwcmVzc2lvblxuc3BlbGxfcnVsZSA8LSByeCgpICU+JSBcbiAgcnhfc29tZXRoaW5nX2J1dChcImNcIikgJT4lIFxuICByeF9maW5kKFwiaWVcIikgJT4lIFxuICBwcmludCgpXG5gYGAifQ== -->
+<pre class="r"><code># RVerbalExpression
+spell_rule &lt;- rx() %&gt;% 
+  rx_something_but(&quot;c&quot;) %&gt;% 
+  rx_find(&quot;ie&quot;) %&gt;% 
+  print()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiKFteY10rKShpZSlcIlxuIn0= -->
+<pre><code>[1] &quot;([^c]+)(ie)&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29yZHNbc3RyX2RldGVjdCh3b3Jkcywgc3BlbGxfcnVsZSldXG5gYGAifQ== -->
+<pre class="r"><code>words[str_detect(words, spell_rule)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcImFjaGlldmVcIiAgICBcImJlbGlldmVcIiAgICBcImJyaWVmXCIgICAgICBcImNsaWVudFwiICAgICBcImRpZVwiICAgICAgICBcImV4cGVyaWVuY2VcIiBcImZpZWxkXCIgICAgIFxuIFs4XSBcImZyaWVuZFwiICAgICBcImxpZVwiICAgICAgICBcInBpZWNlXCIgICAgICBcInF1aWV0XCIgICAgICBcInRpZVwiICAgICAgICBcInZpZXdcIiAgICAgIFxuIn0= -->
+<pre><code> [1] &quot;achieve&quot;    &quot;believe&quot;    &quot;brief&quot;      &quot;client&quot;     &quot;die&quot;        &quot;experience&quot; &quot;field&quot;     
+ [8] &quot;friend&quot;     &quot;lie&quot;        &quot;piece&quot;      &quot;quiet&quot;      &quot;tie&quot;        &quot;view&quot;      </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="3" style="list-style-type: decimal">
+<li>Create a regular expression that will match telephone numbers as commonly written in the US. Split this up into multiple expressions as needed.</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb21tb24gZm9ybWF0OiBSZWd1bGFyIEV4cHJlc3Npb25cbmdyZXBsKFwiXlxcXFxkezN9Wy1cXFxcLl1cXFxcZHszfVstXFxcXC5dXFxcXGR7NH0kXCIsIFwiNjE1LTMxOS01MTY2XCIpXG5gYGAifQ== -->
+<pre class="r"><code># Common format: Regular Expression
+grepl(&quot;^\\d{3}[-\\.]\\d{3}[-\\.]\\d{4}$&quot;, &quot;615-319-5166&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb21tb24gZm9ybWF0OiBSVmVyYmFsRXhwcmVzc2lvblxudGVscnggPC0gcngoKSAlPiVcbiAgcnhfc3RhcnRfb2ZfbGluZSgpICU+JSBcbiAgcnhfZGlnaXQoKSAlPiUgXG4gIHJ4X3JlcGVhdF9wcmV2aW91cygzKSAlPiUgXG4gIHJ4X2FueV9vZihcIi0uXCIpICU+JVxuICByeF9kaWdpdCgpICU+JVxuICByeF9yZXBlYXRfcHJldmlvdXMoMykgJT4lIFxuICByeF9hbnlfb2YoXCItLlwiKSAlPiVcbiAgcnhfZGlnaXQoKSAlPiVcbiAgcnhfcmVwZWF0X3ByZXZpb3VzKDQpICU+JSBcbiAgcnhfZW5kX29mX2xpbmUoKSAlPiUgXG4gIHByaW50KCkgJT4lIFxuICBncmVwbChjKFwiNjE1LTMxOS01MTY2XCIsIFwiNjE1LjMxOS41MTY2XCIsIFwiRU01LjMxOS41MTY2XCIsXCIoNjE1KS0zMTktNTE2NlwiKSkgJT4lIFxuICBwcmludCgpXG5gYGAifQ== -->
+<pre class="r"><code># Common format: RVerbalExpression
+telrx &lt;- rx() %&gt;%
+  rx_start_of_line() %&gt;% 
+  rx_digit() %&gt;% 
+  rx_repeat_previous(3) %&gt;% 
+  rx_any_of(&quot;-.&quot;) %&gt;%
+  rx_digit() %&gt;%
+  rx_repeat_previous(3) %&gt;% 
+  rx_any_of(&quot;-.&quot;) %&gt;%
+  rx_digit() %&gt;%
+  rx_repeat_previous(4) %&gt;% 
+  rx_end_of_line() %&gt;% 
+  print() %&gt;% 
+  grepl(c(&quot;615-319-5166&quot;, &quot;615.319.5166&quot;, &quot;EM5.319.5166&quot;,&quot;(615)-319-5166&quot;)) %&gt;% 
+  print()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiXlxcXFxkezN9Wy1cXFxcLl1cXFxcZHszfVstXFxcXC5dXFxcXGR7NH0kXCJcblsxXSAgVFJVRSAgVFJVRSBGQUxTRSBGQUxTRVxuIn0= -->
+<pre><code>[1] &quot;^\\d{3}[-\\.]\\d{3}[-\\.]\\d{4}$&quot;
+[1]  TRUE  TRUE FALSE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTcGVjaWFsIGNhc2UgKCh4eHgpeHh4LXh4eHgpOiBSVmVyYmFsRXhwcmVzc2lvblxudGVscnhfc3BlY2lhbCA8LSByeCgpICU+JVxuICByeF9zdGFydF9vZl9saW5lKCkgJT4lIFxuICByeF9tYXliZShcIihcIikgJT4lXG4gIHJ4X2RpZ2l0KCkgJT4lIFxuICByeF9yZXBlYXRfcHJldmlvdXMoMykgJT4lIFxuICByeF9tYXliZShcIilcIikgJT4lXG4gIHJ4X2FueV9vZihcIi0uIFwiKSAlPiVcbiAgcnhfZGlnaXQoKSAlPiVcbiAgcnhfcmVwZWF0X3ByZXZpb3VzKDMpICU+JSBcbiAgcnhfYW55X29mKFwiLS5cIikgJT4lXG4gIHJ4X2RpZ2l0KCkgJT4lXG4gIHJ4X3JlcGVhdF9wcmV2aW91cyg0KSAlPiUgXG4gIHJ4X2VuZF9vZl9saW5lKCkgJT4lIFxuICBwcmludCgpICU+JSBcbiAgZ3JlcGwoYyhcIjYxNS0zMTktNTE2NlwiLCBcIjYxNS4zMTkuNTE2NlwiLCBcIig2MTUpIDMxOS01MTY2XCIpKSAlPiUgXG4gIHByaW50KClcblxuYGBgIn0= -->
+<pre class="r"><code># Special case ((xxx)xxx-xxxx): RVerbalExpression
+telrx_special &lt;- rx() %&gt;%
+  rx_start_of_line() %&gt;% 
+  rx_maybe(&quot;(&quot;) %&gt;%
+  rx_digit() %&gt;% 
+  rx_repeat_previous(3) %&gt;% 
+  rx_maybe(&quot;)&quot;) %&gt;%
+  rx_any_of(&quot;-. &quot;) %&gt;%
+  rx_digit() %&gt;%
+  rx_repeat_previous(3) %&gt;% 
+  rx_any_of(&quot;-.&quot;) %&gt;%
+  rx_digit() %&gt;%
+  rx_repeat_previous(4) %&gt;% 
+  rx_end_of_line() %&gt;% 
+  print() %&gt;% 
+  grepl(c(&quot;615-319-5166&quot;, &quot;615.319.5166&quot;, &quot;(615) 319-5166&quot;)) %&gt;% 
+  print()
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiXihcXFxcKCk/XFxcXGR7M30oXFxcXCkpP1stXFxcXC4gXVxcXFxkezN9Wy1cXFxcLl1cXFxcZHs0fSRcIlxuWzFdIFRSVUUgVFJVRSBUUlVFXG4ifQ== -->
+<pre><code>[1] &quot;^(\\()?\\d{3}(\\))?[-\\. ]\\d{3}[-\\.]\\d{4}$&quot;
+[1] TRUE TRUE TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -351,7 +462,7 @@ age(19950225)
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogImFzc2lnbjQiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCkZvciB0aGUgcmVndWxhciBleHByZXNzaW9uIGV4ZXJjaXNlcywgdHJ5IHdyaXRpbmcgZmlyc3QgdXNpbmcgcmVndWxhciBleHByZXNzaW9ucyBkaXJlY3RseSwgdGhlbiB0cnkgdXNpbmcgcnZlcmJhbGV4cHJlc3Npb25zLiBQcm92aWRlIHRoZSBjb2RlIGZvciBib3RoLiANCg0KDQojIFBhcnQgMQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShsdWJyaWRhdGUpDQpgYGANCg0KDQojIyBSNERTIDE2LjQuNQ0KDQpDcmVhdGUgYSB2ZWN0b3Igb2YgZGF0ZXMgZ2l2aW5nIHRoZSBmaXJzdCBkYXkgb2YgZXZlcnkgbW9udGggaW4gdGhlIGN1cnJlbnQgeWVhci4gDQoNCmBgYHtyfQ0KZmxvb3JfZGF0ZSh0b2RheSgpLCB1bml0ID0gInllYXIiKSArIG1vbnRocygwIDogMTEpDQoNCmBgYA0KDQoNCldyaXRlIGEgZnVuY3Rpb24gdGhhdCBnaXZlbiB5b3VyIGJpcnRoZGF5IChhcyBhIGRhdGUpLCByZXR1cm5zIGhvdyBvbGQgeW91IGFyZSBpbiB5ZWFycy4NCg0KYGBge3J9DQphZ2UgPC0gZnVuY3Rpb24oYmlydGhkYXkpIHsNCiAgZGF0ZV9iaXJ0aCA8LSB5bWQoYmlydGhkYXkpDQogIGRhdGVfdG9kYXkgPC0geW1kKHRvZGF5KCkpDQoNCiAgeWVhcl9iaXJ0aCA8LSB5ZWFyKGRhdGVfYmlydGgpDQogIHllYXJfdG9kYXkgPC0geWVhcihkYXRlX3RvZGF5KQ0KICANCiAgYWdlIDwtIHllYXJfdG9kYXkgLSB5ZWFyX2JpcnRoDQogIHJldHVybiAoYWdlKQ0KfQ0KDQphZ2UoMTk5NTAyMjUpDQoNCmFnZSA8LSBmdW5jdGlvbihiZGF5KSB7DQogICh5bWQoYmRheSkgJS0tJSB0b2RheSgpKSAlLyUgeWVhcnMoMSkNCn0NCg0KYWdlKDE5OTUwMjI1KQ0KDQpgYGANCg0KV3JpdGUgYSBmdW5jdGlvbiB0aGF0IGdpdmVuIHlvdXIgYmlydGhkYXksIHJldHVybnMgdGhlIGRheSBvZiB0aGUgd2VlayB5b3Ugd2VyZSBib3JuIG9uLiANCg0KYGBge3J9DQoNCmBgYA0KDQoNCiMjIFI0RFMgMTQuMy4yLjENCg0KR2l2ZW4gdGhlIGNvcnB1cyBvZiBjb21tb24gd29yZHMgaW4gc3RyaW5ncjo6d29yZHMsIGNyZWF0ZSByZWd1bGFyIGV4cHJlc3Npb25zIHRoYXQgZmluZCBhbGwgd29yZHMgdGhhdCBoYXZlIHNldmVuIGxldHRlcnMgb3IgbW9yZS4gKFNpbmNlIHRoaXMgbGlzdCBpcyBsb25nLCB5b3UgbWlnaHQgd2FudCB0byB1c2UgdGhlIG1hdGNoIGFyZ3VtZW50IHRvIHN0cl92aWV3KCkgdG8gc2hvdyBvbmx5IHRoZSBtYXRjaGluZyBvciBub24tbWF0Y2hpbmcgd29yZHMuKQ0KYGBge3IgbG9hZCBsaWJyYXJpZXN9DQpsaWJyYXJ5KFJWZXJiYWxFeHByZXNzaW9ucykNCg0KYGBgDQoNCg0KYGBge3IgcmVndWxhciBleHByZXNzaW9uc30NCndvcmRzIDwtIHN0cmluZ3I6OndvcmRzDQoNCnRlbHJ4X21hdGNoZWQgPC0gcngoKSAlPiUNCiAgcnhfc3RhcnRfb2ZfbGluZSgpICU+JSANCiAgcnhfd29yZF9jaGFyKCkgJT4lIA0KICByeF9yZXBlYXRfcHJldmlvdXMoNykgJT4lIA0KICByeF9hbnl0aGluZygpICU+JQ0KICByeF9lbmRfb2ZfbGluZSgpICU+JSANCiAgcHJpbnQoKQ0KDQojIHRlbHJ4X21hdGNoZWQgPSAiXlxcd3s3fSguKikkIg0KDQpzdHJfdmlldyh3b3JkcywgdGVscnhfbWF0Y2hlZCwgbWF0Y2ggPSBUUlVFKSAjIG1hdGNoaW5nIHdvcmRzDQpzdHJfdmlldyh3b3JkcywgIl5cXHd7N30oLiopJCIsIG1hdGNoID0gRkFMU0UpICMgbm9uLW1hdGNoaW5nIHdvcmRzDQoNCmBgYA0KDQojIyBSNERTIDE0LjMuMy4xDQoNClVzZSBzdHJfZGV0ZWN0IHRvIGZpbmQgYWxsIHdvcmRzIHRoYXQ6DQoNClRoYXQgb25seSBjb250YWluIGNvbnNvbmFudHMuIChIaW50OiB0aGlua2luZyBhYm91dCBtYXRjaGluZyDigJxub3TigJ0tdm93ZWxzLikNCg0KDQpFbXBpcmljYWxseSB2ZXJpZnkgdGhlIHJ1bGUgImkgYmVmb3JlIGUgZXhjZXB0IGFmdGVyIGMiLg0KDQpDcmVhdGUgYSByZWd1bGFyIGV4cHJlc3Npb24gdGhhdCB3aWxsIG1hdGNoIHRlbGVwaG9uZSBudW1iZXJzIGFzIGNvbW1vbmx5IHdyaXR0ZW4gaW4gdGhlIFVTLiBTcGxpdCB0aGlzIHVwIGludG8gbXVsdGlwbGUgZXhwcmVzc2lvbnMgYXMgbmVlZGVkLg0KDQpgYGB7cn0NCnN0cl9kZXRlY3QoKQ0KYGBgDQoNCg0KIyBQYXJ0IDINCg0KDQpDaG9vc2UgYSBkYXRhc2V0ICh0aGlzIGNhbiBiZSB0aGUgc2FtZSBkYXRhc2V0IGFzIHRoZSBsYXN0IGFzc2lnbm1lbnQsIG9yIGEgbmV3IG9uZSkuIERlZmluZSBhIHByZWRpY3RpdmUgbW9kZWxpbmcgcHJvYmxlbS4gQ3JlYXRlIHRoZSBhcHByb3ByaWF0ZSBmaWxlcyBhbmQgbm90ZWJvb2tzIHRvIGRvIHRoZSBmb2xsb3dpbmc6DQoNCjEuIERlc2NyaWJlIHRoZSBkYXRhIGFuZCB0aGUgcHJvYmxlbQ0KDQoyLiBSZWFkIGluIGFuZCBjaGVjayBkYXRhDQoNCjIuIENsZWFuIHVwIHRoZSBkYXRhLiANCg0KKk5vdGU6IFlvdSBtYXkgcmVxdWVzdCB0aGF0IHNjb3JlIGZvciB0aGVzZSBzZWN0aW9ucyByZXBsYWNlIHlvdXIgc2NvcmUgZm9yIHRoZSBjb2RpbmcgcG9ydGlvbiBvZiBBc3NpZ25tZW50IDMuKg0KDQo0LiBVc2luZyBiZXN0IHByYWN0aWNlcywgd3JpdGUgZm91ciBmdW5jdGlvbnMgd2hpY2ggYWRkIGVuZ2luZWVyZWQgZmVhdHVyZXMgdG8gdGhlIGRhdGFzZXQsIGluY2x1ZGluZyBhIGRlc2NyaXB0aW9uIGFuZCByYXRpb25hbGUuIEluY2x1ZGUgYSB0ZXN0IHRvIGRldGVybWluZSB3aGV0aGVyIHRoZSBmZWF0dXJlcyBhcmUgd29ya2luZyBhcyBpbnRlbmRlZC4gDQoNCjUuIFByZXBhcmUgdGhlIGRhdGEgZm9yIG1vZGVsaW5nDQoNCk5vdGU6IHRoaXMgd2lsbCBmb3JtIHRoZSBiYXNpcyBmb3IgeW91ciBtaWR0ZXJtIHByb2plY3QuIFRha2UgYWR2YW50YWdlIG9mIFRBJ3MgYW5kIG15IG9mZmljZSBob3Vycy4gV2UgY2FuIHByb3ZpZGUgZmVlZGJhY2sgYW5kIGd1aWRhbmNlLiANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogImFzc2lnbjQiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCkZvciB0aGUgcmVndWxhciBleHByZXNzaW9uIGV4ZXJjaXNlcywgdHJ5IHdyaXRpbmcgZmlyc3QgdXNpbmcgcmVndWxhciBleHByZXNzaW9ucyBkaXJlY3RseSwgdGhlbiB0cnkgdXNpbmcgcnZlcmJhbGV4cHJlc3Npb25zLiBQcm92aWRlIHRoZSBjb2RlIGZvciBib3RoLiANCg0KDQojIFBhcnQgMQ0KDQpgYGB7ciBsb2FkIGxpYnJhcnl9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkobHVicmlkYXRlKQ0KbGlicmFyeShSVmVyYmFsRXhwcmVzc2lvbnMpDQpsaWJyYXJ5KHN0cmluZ3IpDQpgYGANCg0KDQojIyBSNERTIDE2LjQuNQ0KDQpDcmVhdGUgYSB2ZWN0b3Igb2YgZGF0ZXMgZ2l2aW5nIHRoZSBmaXJzdCBkYXkgb2YgZXZlcnkgbW9udGggaW4gdGhlIGN1cnJlbnQgeWVhci4gDQoNCmBgYHtyIGZpcnN0IGRheSB2ZXJ5IG1vbnRofQ0KZmlyc3RkYXlfZXZlcnlfbW9udGggPC0gZmxvb3JfZGF0ZSh0b2RheSgpLCB1bml0ID0gInllYXIiKSArIG1vbnRocygwIDogMTEpDQpmaXJzdGRheV9ldmVyeV9tb250aA0KYGBgDQoNCg0KV3JpdGUgYSBmdW5jdGlvbiB0aGF0IGdpdmVuIHlvdXIgYmlydGhkYXkgKGFzIGEgZGF0ZSksIHJldHVybnMgaG93IG9sZCB5b3UgYXJlIGluIHllYXJzLg0KDQpgYGB7ciBhZ2V9DQphZ2UgPC0gZnVuY3Rpb24oYmlydGhkYXkpIHsNCiAgKGJpcnRoZGF5ICUtLSUgdG9kYXkoKSkgJS8lIHllYXJzKCkNCn0NCg0KYWdlKHltZCgxOTk1MDIyNSkpDQoNCmBgYA0KDQpXcml0ZSBhIGZ1bmN0aW9uIHRoYXQgZ2l2ZW4geW91ciBiaXJ0aGRheSwgcmV0dXJucyB0aGUgZGF5IG9mIHRoZSB3ZWVrIHlvdSB3ZXJlIGJvcm4gb24uIA0KDQpgYGB7ciBib3JuIGRheSBvZiB0aGUgd2Vla30NCmJvcm5fd2VlayA8LSBmdW5jdGlvbihiaXJ0aGRheSkgew0KICAod2RheShiaXJ0aGRheSwgbGFiZWw9VFJVRSwgYWJiciA9IEZBTFNFKSkNCn0NCg0KYm9ybl93ZWVrKHltZCgxOTk1MDIyNSkpDQoNCmBgYA0KDQoNCiMjIFI0RFMgMTQuMy4yLjENCg0KR2l2ZW4gdGhlIGNvcnB1cyBvZiBjb21tb24gd29yZHMgaW4gc3RyaW5ncjo6d29yZHMsIGNyZWF0ZSByZWd1bGFyIGV4cHJlc3Npb25zIHRoYXQgZmluZCBhbGwgd29yZHMgdGhhdCBoYXZlIHNldmVuIGxldHRlcnMgb3IgbW9yZS4gKFNpbmNlIHRoaXMgbGlzdCBpcyBsb25nLCB5b3UgbWlnaHQgd2FudCB0byB1c2UgdGhlIG1hdGNoIGFyZ3VtZW50IHRvIHN0cl92aWV3KCkgdG8gc2hvdyBvbmx5IHRoZSBtYXRjaGluZyBvciBub24tbWF0Y2hpbmcgd29yZHMuKQ0KDQoNCmBgYHtyIEF0IGxlYXN0IHNldmVuIGxldHRlcnN9DQp3b3JkcyA8LSBzdHJpbmdyOjp3b3Jkcw0KDQojIFJlZ3VsYXIgZXhwcmVzc2lvbg0Kc3RyX3ZpZXcod29yZHMsICJeXFx3ezd9KC4qKSQiLCBtYXRjaCA9IFRSVUUpICMgbWF0Y2hpbmcgd29yZHMNCnN0cl92aWV3KHdvcmRzLCAiXlxcd3s3fSguKikkIiwgbWF0Y2ggPSBGQUxTRSkgIyBub24tbWF0Y2hpbmcgd29yZHMNCg0KDQojIFJWZXJiYWxFeHByZXNzaW9uDQp3b3JkcnhfbWF0Y2hlZCA8LSByeCgpICU+JQ0KICByeF9zdGFydF9vZl9saW5lKCkgJT4lIA0KICByeF93b3JkX2NoYXIoKSAlPiUgDQogIHJ4X3JlcGVhdF9wcmV2aW91cyg3KSAlPiUgDQogIHJ4X2FueXRoaW5nKCkgJT4lDQogIHJ4X2VuZF9vZl9saW5lKCkgJT4lIA0KICBwcmludCgpDQoNCnN0cl92aWV3KHdvcmRzLCB3b3JkcnhfbWF0Y2hlZCwgbWF0Y2ggPSBUUlVFKSAjIG1hdGNoaW5nIHdvcmRzDQpzdHJfdmlldyh3b3Jkcywgd29yZHJ4X21hdGNoZWQsIG1hdGNoID0gRkFMU0UpICMgbm9uLW1hdGNoaW5nIHdvcmRzDQoNCmBgYA0KDQojIyBSNERTIDE0LjMuMy4xDQoNClVzZSBzdHJfZGV0ZWN0IHRvIGZpbmQgYWxsIHdvcmRzIHRoYXQ6DQoNCigxKSBUaGF0IG9ubHkgY29udGFpbiBjb25zb25hbnRzLiAoSGludDogdGhpbmtpbmcgYWJvdXQgbWF0Y2hpbmcgIm5vdCItdm93ZWxzLikNCg0KYGBge3IgKDEpIENvbnNvbmFudHN9DQojIFJlZ3VsYXIgZXhwcmVzc2lvbg0Kd29yZHNbc3RyX2RldGVjdCh3b3JkcywgIl5bXmFlaW91XSskIildDQoNCiMgUlZlcmJhbEV4cHJlc3Npb24NCmluX2NvbnNvbmFudHMgPC0gcngoKSAlPiUgDQogIHJ4X3N0YXJ0X29mX2xpbmUoKSAlPiUgDQogIHJ4X2FueXRoaW5nX2J1dChjKCJhZWlvdSIpKSAlPiUgDQogIHJ4X2VuZF9vZl9saW5lKCkgJT4lIA0KICBwcmludCgpDQoNCndvcmRzW3N0cl9kZXRlY3Qod29yZHMsIGluX2NvbnNvbmFudHMpXQ0KDQpgYGANCg0KDQooMikgRW1waXJpY2FsbHkgdmVyaWZ5IHRoZSBydWxlICJpIGJlZm9yZSBlIGV4Y2VwdCBhZnRlciBjIi4NCg0KYGBge3IgKDIpIGkgYmVmb3JlIGUgZXhjZXB0IGFmdGVyIGN9DQoNCiMgUmVndWxhciBleHByZXNzaW9uDQp3b3Jkc1tzdHJfZGV0ZWN0KHdvcmRzLCAiW15jXWllIildDQoNCiMgUlZlcmJhbEV4cHJlc3Npb24NCnNwZWxsX3J1bGUgPC0gcngoKSAlPiUgDQogIHJ4X3NvbWV0aGluZ19idXQoImMiKSAlPiUgDQogIHJ4X2ZpbmQoImllIikgJT4lIA0KICBwcmludCgpDQoNCg0Kd29yZHNbc3RyX2RldGVjdCh3b3Jkcywgc3BlbGxfcnVsZSldDQoNCmBgYA0KDQoNCigzKSBDcmVhdGUgYSByZWd1bGFyIGV4cHJlc3Npb24gdGhhdCB3aWxsIG1hdGNoIHRlbGVwaG9uZSBudW1iZXJzIGFzIGNvbW1vbmx5IHdyaXR0ZW4gaW4gdGhlIFVTLiBTcGxpdCB0aGlzIHVwIGludG8gbXVsdGlwbGUgZXhwcmVzc2lvbnMgYXMgbmVlZGVkLg0KDQpgYGB7ciAoMykgbWF0Y2ggdGVsIG51bWJlcnN9DQoNCiMgQ29tbW9uIGZvcm1hdCAoeHh4LXh4eC14eHh4IG9yIHh4eC54eHgueHh4eCk6IFJlZ3VsYXIgRXhwcmVzc2lvbg0KZ3JlcGwoIl5cXGR7M31bLVxcLl1cXGR7M31bLVxcLl1cXGR7NH0kIiwgIjYxNS0zMTktNTE2NiIpDQoNCg0KIyBDb21tb24gZm9ybWF0ICh4eHgteHh4LXh4eHggb3IgeHh4Lnh4eC54eHh4KTogUlZlcmJhbEV4cHJlc3Npb24NCg0KdGVscnggPC0gcngoKSAlPiUNCiAgcnhfc3RhcnRfb2ZfbGluZSgpICU+JSANCiAgcnhfZGlnaXQoKSAlPiUgDQogIHJ4X3JlcGVhdF9wcmV2aW91cygzKSAlPiUgDQogIHJ4X2FueV9vZigiLS4iKSAlPiUNCiAgcnhfZGlnaXQoKSAlPiUNCiAgcnhfcmVwZWF0X3ByZXZpb3VzKDMpICU+JSANCiAgcnhfYW55X29mKCItLiIpICU+JQ0KICByeF9kaWdpdCgpICU+JQ0KICByeF9yZXBlYXRfcHJldmlvdXMoNCkgJT4lIA0KICByeF9lbmRfb2ZfbGluZSgpICU+JSANCiAgcHJpbnQoKSAlPiUgDQogIGdyZXBsKGMoIjYxNS0zMTktNTE2NiIsICI2MTUuMzE5LjUxNjYiLCAiRU01LjMxOS41MTY2IiwiKDYxNSkzMTktNTE2NiIpKSAlPiUgDQogIHByaW50KCkNCg0KYGBgDQoNCmBgYHtyICgzKSBTcGVjaWFsIGNhc2V9DQojIFNwZWNpYWwgY2FzZSAoKHh4eCkgeHh4LXh4eHgpOiBSZWd1bGFyIEV4cHJlc3Npb24NCmdyZXBsKCJeKFxcKCk/XFxkezN9KFxcKSk/Wy1cXC4gXVxcZHszfVstXFwuXVxcZHs0fSQiLCAiKDYxNSkgMzE5LTUxNjYiKQ0KDQojIFNwZWNpYWwgY2FzZSAoKHh4eCkgeHh4LXh4eHgpOiBSVmVyYmFsRXhwcmVzc2lvbg0KdGVscnhfc3BlY2lhbCA8LSByeCgpICU+JQ0KICByeF9zdGFydF9vZl9saW5lKCkgJT4lIA0KICByeF9tYXliZSgiKCIpICU+JQ0KICByeF9kaWdpdCgpICU+JSANCiAgcnhfcmVwZWF0X3ByZXZpb3VzKDMpICU+JSANCiAgcnhfbWF5YmUoIikiKSAlPiUNCiAgcnhfYW55X29mKCItLiAiKSAlPiUNCiAgcnhfZGlnaXQoKSAlPiUNCiAgcnhfcmVwZWF0X3ByZXZpb3VzKDMpICU+JSANCiAgcnhfYW55X29mKCItLiIpICU+JQ0KICByeF9kaWdpdCgpICU+JQ0KICByeF9yZXBlYXRfcHJldmlvdXMoNCkgJT4lIA0KICByeF9lbmRfb2ZfbGluZSgpICU+JSANCiAgcHJpbnQoKSAlPiUgDQogIGdyZXBsKGMoIjYxNS0zMTktNTE2NiIsICI2MTUuMzE5LjUxNjYiLCAiKDYxNSkgMzE5LTUxNjYiKSkgJT4lIA0KICBwcmludCgpDQoNCg0KYGBgDQoNCg0KIyBQYXJ0IDINCg0KDQpDaG9vc2UgYSBkYXRhc2V0ICh0aGlzIGNhbiBiZSB0aGUgc2FtZSBkYXRhc2V0IGFzIHRoZSBsYXN0IGFzc2lnbm1lbnQsIG9yIGEgbmV3IG9uZSkuIERlZmluZSBhIHByZWRpY3RpdmUgbW9kZWxpbmcgcHJvYmxlbS4gQ3JlYXRlIHRoZSBhcHByb3ByaWF0ZSBmaWxlcyBhbmQgbm90ZWJvb2tzIHRvIGRvIHRoZSBmb2xsb3dpbmc6DQoNCjEuIERlc2NyaWJlIHRoZSBkYXRhIGFuZCB0aGUgcHJvYmxlbQ0KDQoyLiBSZWFkIGluIGFuZCBjaGVjayBkYXRhDQoNCjIuIENsZWFuIHVwIHRoZSBkYXRhLiANCg0KKk5vdGU6IFlvdSBtYXkgcmVxdWVzdCB0aGF0IHNjb3JlIGZvciB0aGVzZSBzZWN0aW9ucyByZXBsYWNlIHlvdXIgc2NvcmUgZm9yIHRoZSBjb2RpbmcgcG9ydGlvbiBvZiBBc3NpZ25tZW50IDMuKg0KDQo0LiBVc2luZyBiZXN0IHByYWN0aWNlcywgd3JpdGUgZm91ciBmdW5jdGlvbnMgd2hpY2ggYWRkIGVuZ2luZWVyZWQgZmVhdHVyZXMgdG8gdGhlIGRhdGFzZXQsIGluY2x1ZGluZyBhIGRlc2NyaXB0aW9uIGFuZCByYXRpb25hbGUuIEluY2x1ZGUgYSB0ZXN0IHRvIGRldGVybWluZSB3aGV0aGVyIHRoZSBmZWF0dXJlcyBhcmUgd29ya2luZyBhcyBpbnRlbmRlZC4gDQoNCjUuIFByZXBhcmUgdGhlIGRhdGEgZm9yIG1vZGVsaW5nDQoNCk5vdGU6IHRoaXMgd2lsbCBmb3JtIHRoZSBiYXNpcyBmb3IgeW91ciBtaWR0ZXJtIHByb2plY3QuIFRha2UgYWR2YW50YWdlIG9mIFRBJ3MgYW5kIG15IG9mZmljZSBob3Vycy4gV2UgY2FuIHByb3ZpZGUgZmVlZGJhY2sgYW5kIGd1aWRhbmNlLiANCg0K</div>
 
 
 
